@@ -35,9 +35,9 @@ const NavigationBar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
+                <Link className="nav-link" to="/jogo">
+                  Jogo
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
