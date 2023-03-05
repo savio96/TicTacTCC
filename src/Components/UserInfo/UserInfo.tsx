@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 interface IUserProps {
   wallet: string;
-  publicKey: string;
+  publicKey?: string;
+  conectado: string;
 }
 
-class UserWallet implements IUserProps {
+class UserInfo implements IUserProps {
   wallet = "";
   publicKey = "";
+  conectado = "Conectar";
   getWallet() {
     return this.wallet;
   }
@@ -20,6 +22,12 @@ class UserWallet implements IUserProps {
   setPublicKey(newPublicKey: string) {
     this.publicKey = newPublicKey;
   }
+  getConectado() {
+    return this.conectado;
+  }
+  setConectado(newConectado: string) {
+    this.conectado = newConectado;
+  }
 }
 
-export { UserWallet };
+export { UserInfo };
