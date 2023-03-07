@@ -1,32 +1,25 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import styles from "./connectwallet.module.scss";
 import classnames from "classnames";
-import { UserInfo } from "../UserInfo/UserInfo";
-import { AuthWalletContext } from "../../Context/Auth";
+import { UserProvider, UserContext } from "../UserInfo/UserInfo";
 
 const ConnectWallet = () => {
-  const SetWallet = (props) => {
-    const [state, dispatch] = useState(AuthWalletContext);
-    const currentWal = "3PP";
-    useEffect(() => {
-      if (currentWal) {
-        dispatch({ type: "UPDATE_WALLET", currentWal });
-      }
-    });
-  };
+  const { wallet, changeWallet } = useContext(UserContext);
+  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("clicou");
+    let valor = wallet == "3PP" ? "Conectar" : "3PP";
 
-  const HandleEventConnect = () => {
-    //login.setConectado("Conectado");
-    //console.log(login.conectado);
-    //setLogin();
+    changeWallet(valor);
+    console.log(wallet);
   };
   return (
     <>
       <button
-        className={classnames(styles["btn-wallet"])}
-        onClick={HandleEventConnect}
+        className={classnames(styles["btn-wallet"], "btn", "btn-primary")}
+        onClick={handleOnClick}
       >
-        {login.conectado}
+        {wallet}
       </button>
     </>
   );

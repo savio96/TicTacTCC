@@ -1,14 +1,11 @@
 import React, { Component, useState } from "react";
 import { ConnectWallet } from "../../Components/ConnectWallet/ConnectWallet";
-import { AuthWalletContext, Gravar } from "../../Context/Auth";
-import { Home } from "../Home/Home";
+import { UserProvider } from "../../Components/UserInfo/UserInfo";
 
 const Teste = () => {
   return (
     <>
-      <Gravar>
-        <Home></Home>
-      </Gravar>
+      <ConnectWallet></ConnectWallet>
     </>
   );
 };
