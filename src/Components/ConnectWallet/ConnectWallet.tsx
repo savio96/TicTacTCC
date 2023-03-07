@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import styles from "./connectwallet.module.scss";
 import classnames from "classnames";
 import { UserInfo } from "../UserInfo/UserInfo";
+import { AuthWalletContext } from "../../Context/Auth";
 
 const ConnectWallet = () => {
-  const usuario = new UserInfo();
-  const [login, setLogin] = useState(usuario);
-  const HandleEventConnect = () => {
-    /*
-    setLogin((previousState) => {
-      usuario=set
-      return{...previousState,usuario.setWallet("3Pxxx")}
-    });*/
-    usuario.setConectado("Conectado");
-    //console.log(usuario.conectado);
-    //setLogin(usuario);
+  const SetWallet = (props) => {
+    const [state, dispatch] = useState(AuthWalletContext);
+    const currentWal = "3PP";
     useEffect(() => {
-      setLogin(() => usuario);
-    }, [usuario]);
+      if (currentWal) {
+        dispatch({ type: "UPDATE_WALLET", currentWal });
+      }
+    });
+  };
+
+  const HandleEventConnect = () => {
+    //login.setConectado("Conectado");
+    //console.log(login.conectado);
+    //setLogin();
   };
   return (
     <>

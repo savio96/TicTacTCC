@@ -1,9 +1,14 @@
-import React from "react";
+import React, { Component, useState } from "react";
 import { ConnectWallet } from "../../Components/ConnectWallet/ConnectWallet";
+import { AuthWalletContext, Gravar } from "../../Context/Auth";
+import { Home } from "../Home/Home";
+
 const Teste = () => {
   return (
     <>
-      <ConnectWallet></ConnectWallet>
+      <Gravar>
+        <Home></Home>
+      </Gravar>
     </>
   );
 };
