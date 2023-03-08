@@ -12,7 +12,7 @@ const NavigationBar = () => {
         <div className="container-fluid">
           <Link
             className={classnames("nav-link", styles["nav-link-home"])}
-            to="/home"
+            to="/"
           >
             Home
           </Link>
