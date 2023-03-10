@@ -4,12 +4,15 @@ import classnames from "classnames";
 import { UserProvider, UserContext } from "../UserInfo/UserInfo";
 
 const ConnectWallet = () => {
-  const { wallet, changeWallet } = useContext(UserContext);
+  const { wallet, changeWallet, privateKey, changePrivateKey } =
+    useContext(UserContext);
+
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("clicou");
     let valor = wallet == "3PP" ? "Conectar" : "3PP";
-
+    let valorPriveteKey = privateKey == "111" ? "" : "111";
+    changePrivateKey(valorPriveteKey);
     changeWallet(valor);
     console.log(wallet);
   };
@@ -21,6 +24,7 @@ const ConnectWallet = () => {
       >
         {wallet}
       </button>
+      <div>{privateKey}</div>
     </>
   );
 };
