@@ -4,24 +4,14 @@ import classnames from "classnames";
 import { UserProvider, UserContext } from "../UserInfo/UserInfo";
 import { Signer } from "@waves/signer";
 import { ProviderKeeper, isKeeperInstalled } from "@waves/provider-keeper";
-import { consoleLoggerLevel } from "vtex/lib/api/logger";
 
 const ConnectWallet = () => {
-  const { wallet, changeWallet, privateKey, changePrivateKey } =
+  let { wallet, changeWallet, publicKey, changePublicKey } =
     useContext(UserContext);
 
-  const handleOnClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const HandleOnClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const authData = { data: "Auth on my site" };
-    KeeperWallet.auth(authData)
-      .then((auth) => {
-        console.log(auth); //displaying the result on the console
-        /*...processing data */
-      })
-      .catch((error) => {
-        console.error(error); // displaying the result on the console
-        /*...processing errors */
-      }); /*
+
     const isInstalled = await isKeeperInstalled();
     const signer = new Signer({
       // Specify URL of the node on Testnet
@@ -31,26 +21,28 @@ const ConnectWallet = () => {
     signer.setProvider(keeper);
     const user = await signer.login();
     console.log(user["address"]);
+    console.log(user["publicKey"]);
     if (isInstalled) {
       console.log("Connected");
     }
-    
-    let balance =
-      await `https://nodes-testnet.wavesnodes.com/addresses/balance/${wallet}`;*/
-    let valor = wallet == wallet ? "Conectar" : wallet;
-    let valorPriveteKey = privateKey == "111" ? "" : "111";
-    changePrivateKey(valorPriveteKey);
+    let getBalance = "";
+    let balance = `https://nodes-testnet.wavesnodes.com/addresses/balance/${wallet}`;
+
+    let valor = wallet == user["address"] ? "Conectar" : user["address"];
+    let valorPublicKey =
+      publicKey == user["publicKey"] ? "" : user["publicKey"];
     changeWallet(valor);
+    changePublicKey(valorPublicKey);
   };
   return (
     <>
       <button
         className={classnames(styles["btn-wallet"], "btn", "btn-primary")}
-        onClick={handleOnClick}
+        onClick={HandleOnClick}
       >
         {wallet}
       </button>
-      <div>{privateKey}</div>
+      <div>{publicKey}</div>
     </>
   );
 };

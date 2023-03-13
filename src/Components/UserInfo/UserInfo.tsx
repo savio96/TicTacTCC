@@ -5,8 +5,8 @@ import { Teste } from "../../Pages/Teste/Teste";
 interface IUserProps {
   wallet: string;
   changeWallet: Function;
-  privateKey: string;
-  changePrivateKey: Function;
+  publicKey: string;
+  changePublicKey: Function;
 }
 
 type UserProviderProps = {
@@ -16,16 +16,16 @@ type UserProviderProps = {
 const defaultState = {
   wallet: "Conectar",
   changeWallet: () => {},
-  privateKey: "",
-  changePrivateKey: () => {},
+  publicKey: "",
+  changePublicKey: () => {},
 };
 
 const UserContext = React.createContext<IUserProps>(defaultState);
 const UserProvider = (props: UserProviderProps) => {
   const [wallet, setWallet] = React.useState(defaultState.wallet);
-  const [privateKey, setPrivateKey] = React.useState(defaultState.privateKey);
-  const changePrivateKey = (key: string) => {
-    setPrivateKey(key);
+  const [publicKey, setPublic] = React.useState(defaultState.publicKey);
+  const changePublicKey = (key: string) => {
+    setPublic(key);
   };
   const changeWallet = (cart: string) => {
     setWallet(cart);
@@ -36,8 +36,8 @@ const UserProvider = (props: UserProviderProps) => {
       value={{
         wallet,
         changeWallet,
-        privateKey,
-        changePrivateKey,
+        publicKey,
+        changePublicKey,
       }}
     >
       {props.children}
