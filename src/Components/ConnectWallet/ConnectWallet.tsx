@@ -19,20 +19,20 @@ const ConnectWallet = () => {
     });
     const keeper = new ProviderKeeper();
     signer.setProvider(keeper);
-    const user = await signer.login();
-    console.log(user["address"]);
-    console.log(user["publicKey"]);
+
+    signer.login().then((data) => {
+      changeWallet(data["address"]);
+      changePublicKey(data["publicKey"]);
+      fetch(
+        `https://nodes-testnet.wavesnodes.com/addresses/balance/${data["address"]}`
+      )
+        .then((res) => res.json())
+        .then((res2) => console.log(res2));
+    });
+
     if (isInstalled) {
       console.log("Connected");
     }
-    let getBalance = "";
-    let balance = `https://nodes-testnet.wavesnodes.com/addresses/balance/${wallet}`;
-
-    let valor = wallet == user["address"] ? "Conectar" : user["address"];
-    let valorPublicKey =
-      publicKey == user["publicKey"] ? "" : user["publicKey"];
-    changeWallet(valor);
-    changePublicKey(valorPublicKey);
   };
   return (
     <>
