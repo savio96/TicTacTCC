@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
+import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
 const NavigationBar = () => {
   return (
     <>
@@ -76,18 +77,10 @@ const NavigationBar = () => {
                   </li>
                 </ul>
               </li>
+              d-flex
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              ></input>
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+
+            <ConnectWallet></ConnectWallet>
           </div>
         </div>
       </nav>

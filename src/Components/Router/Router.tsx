@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Home } from "../../Pages/Home/Home";
 import { Teste } from "../../Pages/Teste/Teste";
 import { TutorialWallet } from "../../Pages/TutorialWallet/TutorialWallet";

@@ -1,13 +1,7 @@
-import React, { Component, useState } from "react";
-import { ConnectWallet } from "../../Components/ConnectWallet/ConnectWallet";
-import { UserProvider } from "../../Components/UserInfo/UserInfo";
+import React from "react";
 
 const Teste = () => {
-  return (
-    <>
-      <ConnectWallet></ConnectWallet>
-    </>
-  );
+  return <></>;
 };
 
 export { Teste };
