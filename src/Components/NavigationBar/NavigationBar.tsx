@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
+import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
 const NavigationBar = () => {
   return (
     <>
@@ -12,7 +13,7 @@ const NavigationBar = () => {
         <div className="container-fluid">
           <Link
             className={classnames("nav-link", styles["nav-link-home"])}
-            to="/home"
+            to="/"
           >
             Home
           </Link>
@@ -34,11 +35,13 @@ const NavigationBar = () => {
                   Teste
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="/jogo">
                   Jogo
                 </Link>
               </li>
+
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -76,18 +79,15 @@ const NavigationBar = () => {
                   </li>
                 </ul>
               </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/resgate">
+                  Resgate seu NFT
+                </Link>
+              </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              ></input>
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+
+            <ConnectWallet></ConnectWallet>
           </div>
         </div>
       </nav>
