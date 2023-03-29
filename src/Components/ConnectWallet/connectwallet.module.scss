@@ -1,1 +1,12 @@
-
+.wrapper-connect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.wallet {
+  color: white;
+}
+.balance {
+  color: white;
+}
