@@ -9,13 +9,6 @@ const DAppCriaNFT = () => {
   
 
 
-
-
-
-
-
-
-
   
   return (
     <div>
