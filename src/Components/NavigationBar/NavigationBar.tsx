@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
+import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
 const NavigationBar = () => {
   return (
     <>
@@ -29,7 +30,6 @@ const NavigationBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-
               <li className="nav-item">
                 <Link className="nav-link nav-link-teste" to="/teste">
                   Teste
@@ -79,25 +79,15 @@ const NavigationBar = () => {
                   </li>
                 </ul>
               </li>
-              
+
               <li className="nav-item">
                 <Link className="nav-link" to="/resgate">
                   Resgate seu NFT
                 </Link>
               </li>
-
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              ></input>
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+
+            <ConnectWallet></ConnectWallet>
           </div>
         </div>
       </nav>
