@@ -8,8 +8,11 @@ import {DAppCriaNFT} from "../../Components/dAppCriaNFT/dAppCriaNFT"
 const ResgateSeuNFT = () => {
   return (
       <div>
+    
           <img src= {imgblock} alt="imagembackground"/>
+        
           <DAppCriaNFT></DAppCriaNFT>
+          
       </div>
           
 
