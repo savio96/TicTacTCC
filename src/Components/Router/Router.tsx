@@ -5,6 +5,7 @@ import { Teste } from "../../Pages/Teste/Teste";
 import { TutorialWallet } from "../../Pages/TutorialWallet/TutorialWallet";
 import { Jogo } from "../../Pages/Jogo/Jogo";
 import { ResgateSeuNFT } from "../../Pages/ResgateSeuNFT/ResgateSeuNFT";
+import { Inventario } from "../../Pages/Inventario/Inventario";
 
 const RoutesUrl = () => {
   return (
@@ -14,6 +15,7 @@ const RoutesUrl = () => {
       <Route path="/tutorial-carteira" element={<TutorialWallet />}></Route>
       <Route path="/jogo" element={<Jogo />}></Route>
       <Route path="/resgate" element={<ResgateSeuNFT />}></Route>
+      <Route path="/inventario" element={<Inventario />}></Route>
     </Routes>
   );
 };

@@ -30,6 +30,7 @@ const NavigationBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+
               <li className="nav-item">
                 <Link className="nav-link nav-link-teste" to="/teste">
                   Teste
@@ -79,14 +80,20 @@ const NavigationBar = () => {
                   </li>
                 </ul>
               </li>
-
               <li className="nav-item">
                 <Link className="nav-link" to="/resgate">
                   Resgate seu NFT
                 </Link>
               </li>
-            </ul>
 
+              <li className="nav-item">
+                <Link className="nav-link" to="/inventario">
+                  Inventário
+                </Link>
+              </li>
+
+
+            </ul>
             <ConnectWallet></ConnectWallet>
           </div>
         </div>
