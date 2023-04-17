@@ -85,8 +85,15 @@ const NavigationBar = () => {
                   Resgate seu NFT
                 </Link>
               </li>
-            </ul>
 
+              <li className="nav-item">
+                <Link className="nav-link" to="/inventario">
+                  Inventário
+                </Link>
+              </li>
+
+
+            </ul>
             <ConnectWallet></ConnectWallet>
           </div>
         </div>
