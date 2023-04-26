@@ -71,4 +71,62 @@ const BtnDepositCoin = () => {
   );
 };
 
-export { BtnClaimCoin, BtnDepositCoin };
+const BtnFinalizar = () => {
+  const HandleOnClick = () => {
+    let txData: any = {
+      type: 16,
+      data: {
+        dApp: "3NC3ZeZYDpDR72ngL6CoC19ygSD9uGBW3fX",
+        call: {
+          function: "verificarVencedor",
+          args: [
+            {
+              type: "list",
+              value: [
+                {
+                  type: "integer",
+                  value: 1,
+                },
+                {
+                  type: "integer",
+                  value: 2,
+                },
+                {
+                  type: "integer",
+                  value: 1,
+                },
+                {
+                  type: "integer",
+                  value: -4,
+                },
+              ],
+            },
+            {
+              type: "integer",
+              value: 0,
+            },
+          ],
+        },
+      },
+    };
+
+    KeeperWallet.signAndPublishTransaction(txData)
+      .then((data) => {
+        //data - a line ready for sending to Waves network's node (server)
+      })
+      .catch((error) => {
+        //processing errors
+      });
+  };
+  return (
+    <>
+      <button
+        onClick={HandleOnClick}
+        className={classnames("btn", "btn-primary")}
+      >
+        Finalizar
+      </button>
+    </>
+  );
+};
+export { BtnClaimCoin, BtnDepositCoin, BtnFinalizar };

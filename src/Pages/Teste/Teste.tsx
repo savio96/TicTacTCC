@@ -1,9 +1,15 @@
 import React from "react";
-import { BtnClaimCoin, BtnDepositCoin } from "../../Components/btnDapp/btnDapp";
+import {
+  BtnClaimCoin,
+  BtnDepositCoin,
+  BtnFinalizar,
+} from "../../Components/btnDapp/btnDapp";
 const Teste = () => {
   return (
     <>
-      <div></div>
+      <div>
+        <BtnFinalizar></BtnFinalizar>
+      </div>
     </>
   );
 };
