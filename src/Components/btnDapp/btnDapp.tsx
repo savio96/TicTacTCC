@@ -89,7 +89,7 @@ const BtnFinalizar = () => {
                 },
                 {
                   type: "integer",
-                  value: 2,
+                  value: 3,
                 },
                 {
                   type: "integer",
