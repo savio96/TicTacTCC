@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const BtnClaimCoin = () => {
+  let navigate = useNavigate();
   const HandleOnClick = () => {
     let txData: any = {
       type: 16,
@@ -16,6 +18,7 @@ const BtnClaimCoin = () => {
     KeeperWallet.signAndPublishTransaction(txData)
       .then((data) => {
         //data - a line ready for sending to Waves network's node (server)
+        navigate("/jogo");
       })
       .catch((error) => {
         //processing errors
@@ -53,12 +56,13 @@ const BtnDepositCoin = () => {
 
     KeeperWallet.signAndPublishTransaction(txData)
       .then((data) => {
-        //data - a line ready for sending to Waves network's node (server)
+        console.log("foi");
       })
       .catch((error) => {
         //processing errors
       });
   };
+
   return (
     <>
       <button
