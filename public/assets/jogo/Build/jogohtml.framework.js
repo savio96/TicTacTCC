@@ -1166,26 +1166,26 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 3022936: function() {
+ 3022952: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 3022991: function($0) {
+ 3023007: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 3023039: function($0) {
+ 3023055: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 3023087: function() {
+ 3023103: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 3023142: function() {
+ 3023158: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 3023203: function() {
+ 3023219: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  }
 };
@@ -10634,12 +10634,8 @@ function _emscripten_webgl_init_context_attributes(attributes) {
  HEAP32[a + (0 >> 2)] = HEAP32[a + (4 >> 2)] = HEAP32[a + (12 >> 2)] = HEAP32[a + (16 >> 2)] = HEAP32[a + (32 >> 2)] = HEAP32[a + (40 >> 2)] = 1;
 }
 
-function _endMatch(criador, convidado, solucoesArr, boardArr, tam) {
- var solucoes = [];
- var board = [];
- for (var i = 0; i < tam; i++) solucoes.push(HEAP16[(solucoesArr >> 2) + i]);
- board.push(HEAPF32[(boardArr >> 2) + i]);
- window.dispatchReactUnityEvent("endMatch", UTF8ToString(criador), UTF8ToString(convidado), solucoes, board, tam);
+function _endMatch(criador, convidado, solucoes, board) {
+ window.dispatchReactUnityEvent("endMatch", UTF8ToString(criador), UTF8ToString(convidado), UTF8ToString(solucoes), UTF8ToString(board));
 }
 
 var ENV = {};
