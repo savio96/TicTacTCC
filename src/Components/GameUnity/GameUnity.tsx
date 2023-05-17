@@ -3,7 +3,18 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from "./gameunity.module.scss";
 import classnames from "classnames";
 import { UserContext } from "../UserInfo/UserInfo";
+import { PopUPClaim } from "../PopUPClaim/PopUPClaim";
 
+function ConvertStrArr(linha: string) {
+  let aux = linha.split(";");
+  console.log("aux:Split", aux);
+  let vet: number[] = [];
+  aux.forEach((element) => {
+    vet.push(parseInt(element));
+  });
+  vet.pop();
+  return vet;
+}
 function GameUnity() {
   let { wallet, changeWallet } = useContext(UserContext);
 
@@ -22,18 +33,24 @@ function GameUnity() {
   });
 
   const handleEndMatch = useCallback(
-    (
-      criador: any,
-      convidado: any,
-      solucoesArr: any,
-      boardArr: any,
-      tam: any
-    ) => {
-      console.log(criador);
-      console.log(convidado);
-      console.log(solucoesArr);
-      console.log(boardArr);
-      console.log(tam);
+    (criador: any, convidado: any, solucoesStr: any, boardStr: any) => {
+      //console.log(criador);
+      //console.log(convidado);
+      //console.log(solucoesArr);
+      //console.log(boardArr);
+      console.log("Fim");
+      let carteiraCriador = criador.slice(criador.indexOf("-") + 1);
+      let carteiraConvidado = convidado.slice(convidado.indexOf("-") + 1);
+      console.log(carteiraCriador, "Criador");
+      console.log(carteiraConvidado, "Convidado");
+      let chamada =
+        carteiraCriador === wallet ? carteiraCriador : carteiraConvidado;
+      console.log(chamada, "Chamada");
+      let numJogo = wallet === carteiraCriador ? 0 : 1;
+      console.log(numJogo);
+      let solArr = ConvertStrArr(solucoesStr);
+      console.log(solArr);
+      console.log(boardStr);
     },
     []
   );

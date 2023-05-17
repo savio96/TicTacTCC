@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { BtnDepositCoin } from "../btnDapp/btnDapp";
+import { BtnFinalizar } from "../btnDapp/btnDapp";
 import {
   Navigate,
   useNavigate,
@@ -10,7 +10,7 @@ import {
   useNavigation,
 } from "react-router-dom";
 
-function PopUP() {
+function PopUPClaim() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,7 +19,7 @@ function PopUP() {
   const BtnToPop = (btndata: any) => {
     setShow(!show);
     console.log("cheguei aqui");
-    navigate("/jogo");
+    navigate("/");
   };
 
   return (
@@ -35,11 +35,9 @@ function PopUP() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Deposite a moeda!!!</Modal.Title>
+          <Modal.Title>Finalizar partida!!!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <BtnDepositCoin BtnToPop={BtnToPop}></BtnDepositCoin>
-        </Modal.Body>
+        <Modal.Body></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -51,4 +49,4 @@ function PopUP() {
   );
 }
 
-export { PopUP };
+export { PopUPClaim };

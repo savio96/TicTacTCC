@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
 import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
-import { PopUP } from "../PopUP/PopUP";
+import { PopUPDeposit } from "../PopUPDeposit/PopUPDeposit";
 const NavigationBar = () => {
   return (
     <>
@@ -38,7 +38,7 @@ const NavigationBar = () => {
               </li>
 
               <li className="nav-item">
-                <PopUP></PopUP>
+                <PopUPDeposit></PopUPDeposit>
               </li>
 
               <li className="nav-item dropdown">

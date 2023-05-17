@@ -84,7 +84,13 @@ const BtnDepositCoin = ({ BtnToPop }: any) => {
   );
 };
 
-const BtnFinalizar = () => {
+const BtnFinalizar = (
+  solucoes: any,
+  criador: any,
+  numJog: any,
+  convidado: any,
+  tabuleiro: any
+) => {
   const HandleOnClick = () => {
     let txData: any = {
       type: 16,
