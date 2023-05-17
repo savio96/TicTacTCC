@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, SetStateAction } from "react";
 import classnames from "classnames";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link, redirect } from "react-router-dom";
+import { triggerAsyncId } from "async_hooks";
 
 const BtnClaimCoin = () => {
-  let navigate = useNavigate();
   const HandleOnClick = () => {
     let txData: any = {
       type: 16,
@@ -18,7 +18,6 @@ const BtnClaimCoin = () => {
     KeeperWallet.signAndPublishTransaction(txData)
       .then((data) => {
         //data - a line ready for sending to Waves network's node (server)
-        navigate("/jogo");
       })
       .catch((error) => {
         //processing errors
@@ -26,18 +25,21 @@ const BtnClaimCoin = () => {
   };
   return (
     <>
-      <button
+      <Link
         onClick={HandleOnClick}
-        className={classnames("btn", "btn-primary")}
+        className="nav-link nav-link-teste"
+        to="/jogo"
       >
-        Resgatar moeda!
-      </button>
+        Resgatar
+      </Link>
     </>
   );
 };
 
-const BtnDepositCoin = () => {
-  const HandleOnClick = () => {
+const BtnDepositCoin = ({ BtnToPop }: any) => {
+  const [respostaApi, setRespostaApi] = useState(true);
+
+  const HandleDeposit = () => {
     let txData: any = {
       type: 16,
       data: {
@@ -56,11 +58,18 @@ const BtnDepositCoin = () => {
 
     KeeperWallet.signAndPublishTransaction(txData)
       .then((data) => {
-        console.log("foi");
+        setRespostaApi(false);
+        BtnToPop(respostaApi);
+
+        console.log(respostaApi);
       })
+
       .catch((error) => {
         //processing errors
       });
+  };
+  const HandleOnClick = () => {
+    HandleDeposit();
   };
 
   return (
