@@ -8,12 +8,10 @@ interface JSONList {
   value: JSONInteger[];
 }
 
-function ConvertJson(): JSONList {
-  const vetor: number[] = [1, 3, 1, -4];
-
+function ConvertJson(vet: any): JSONList {
   const saida: JSONList = { type: "list", value: [] };
 
-  for (const elemento of vetor) {
+  for (const elemento of vet) {
     const objetoJSON: JSONInteger = { type: "integer", value: elemento };
     saida.value.push(objetoJSON);
     console.log(JSON.stringify(saida));

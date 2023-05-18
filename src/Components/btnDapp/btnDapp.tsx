@@ -1,7 +1,7 @@
 import React, { useEffect, useState, SetStateAction } from "react";
 import classnames from "classnames";
 import { Navigate, useNavigate, Link, redirect } from "react-router-dom";
-import { triggerAsyncId } from "async_hooks";
+import ConvertJson from "../GameInfos/GameInfos";
 
 const BtnClaimCoin = () => {
   const HandleOnClick = () => {
@@ -85,58 +85,45 @@ const BtnDepositCoin = ({ BtnToPop }: any) => {
 };
 
 const BtnFinalizar = (
-  solucoes: any,
-  criador: any,
-  numJog: any,
-  convidado: any,
-  tabuleiro: any
+  { BtnToPop }: any,
+  { numJog }: any,
+  { oponente }: any,
+  { solucoes }: any,
+  { tabuleiro }: any
 ) => {
-  const HandleOnClick = () => {
+  const [respostaApi, setRespostaApi] = useState(true);
+  const HandleFinish = () => {
+    let jsSolucoes = ConvertJson(solucoes);
+    let jsnumJog = { type: "integer", value: { numJog } };
+    let jsOponente = { type: "string", value: { oponente } };
+    let jsTabuleiro = { type: "string", value: { tabuleiro } };
     let txData: any = {
       type: 16,
       data: {
         dApp: "3NC3ZeZYDpDR72ngL6CoC19ygSD9uGBW3fX",
         call: {
           function: "verificarVencedor",
-          args: [
-            {
-              type: "list",
-              value: [
-                {
-                  type: "integer",
-                  value: 1,
-                },
-                {
-                  type: "integer",
-                  value: 3,
-                },
-                {
-                  type: "integer",
-                  value: 1,
-                },
-                {
-                  type: "integer",
-                  value: -4,
-                },
-              ],
-            },
-            {
-              type: "integer",
-              value: 0,
-            },
-          ],
+          args: [{ jsSolucoes }, { jsnumJog }, { jsOponente }, { jsTabuleiro }],
         },
       },
     };
 
     KeeperWallet.signAndPublishTransaction(txData)
       .then((data) => {
-        //data - a line ready for sending to Waves network's node (server)
+        setRespostaApi(false);
+        BtnToPop(respostaApi);
+
+        console.log(respostaApi);
       })
       .catch((error) => {
         //processing errors
       });
   };
+
+  const HandleOnClick = () => {
+    HandleFinish();
+  };
+
   return (
     <>
       <button

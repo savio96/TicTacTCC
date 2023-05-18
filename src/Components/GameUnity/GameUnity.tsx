@@ -15,6 +15,17 @@ function ConvertStrArr(linha: string) {
   vet.pop();
   return vet;
 }
+
+function handleFinish(numJog: any, oponente: any, solArr: any, tabela: any) {
+  return (
+    <PopUPClaim
+      numJog={numJog}
+      oponente={oponente}
+      solucoes={solArr}
+      tabela={tabela}
+    ></PopUPClaim>
+  );
+}
 function GameUnity() {
   let { wallet, changeWallet } = useContext(UserContext);
 
@@ -25,6 +36,7 @@ function GameUnity() {
     addEventListener,
     removeEventListener,
     sendMessage,
+    UNSAFE__detachAndUnloadImmediate: detachAndUnloadImmediate,
   } = useUnityContext({
     loaderUrl: "/assets/jogo/Build/jogohtml.loader.js",
     dataUrl: "/assets/jogo/Build/jogohtml.data",
@@ -46,15 +58,21 @@ function GameUnity() {
       let chamada =
         carteiraCriador === wallet ? carteiraCriador : carteiraConvidado;
       console.log(chamada, "Chamada");
-      let numJogo = wallet === carteiraCriador ? 0 : 1;
-      console.log(numJogo);
+      let oponente = chamada === wallet ? carteiraConvidado : carteiraCriador;
+      let numJoga = wallet === carteiraCriador ? 0 : 1;
+      console.log(numJoga);
       let solArr = ConvertStrArr(solucoesStr);
       console.log(solArr);
       console.log(boardStr);
+      return handleFinish(numJoga, oponente, solArr, boardStr);
     },
     []
   );
-
+  useEffect(() => {
+    return () => {
+      detachAndUnloadImmediate();
+    };
+  }, [detachAndUnloadImmediate]);
   useEffect(() => {
     addEventListener("endMatch", handleEndMatch);
     return () => {
