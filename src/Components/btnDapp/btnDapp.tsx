@@ -99,7 +99,7 @@ const BtnFinalizar = ({ BtnToPop }: any) => {
   const [respostaApi, setRespostaApi] = useState(true);
   function ConvertStrArr(linha: string) {
     let aux = linha.split(";");
-    console.log("aux:Split", aux);
+
     let vet: number[] = [];
     aux.forEach((element) => {
       vet.push(parseInt(element));
@@ -110,16 +110,21 @@ const BtnFinalizar = ({ BtnToPop }: any) => {
   const HandleFinish = () => {
     let sol = ConvertStrArr(solucoes);
     let jsSolucoes = ConvertJson(sol);
-    let jsnumJog = { type: "integer", value: { numJog } };
-    let jsOponente = { type: "string", value: { oponente } };
-    let jsTabuleiro = { type: "string", value: { tabuleiro } };
+    let jsnumJog = { type: "integer", value: numJog };
+    let jsOponente = { type: "string", value: oponente };
+    let jsTabuleiro = { type: "string", value: tabuleiro };
+    console.log("cheguei no handlefinish");
+    console.log(jsSolucoes);
+    console.log(jsnumJog);
+    console.log(jsOponente);
+    console.log(jsTabuleiro);
     let txData: any = {
       type: 16,
       data: {
         dApp: "3NC3ZeZYDpDR72ngL6CoC19ygSD9uGBW3fX",
         call: {
           function: "verificarVencedor",
-          args: [{ jsSolucoes }, { jsnumJog }, { jsOponente }, { jsTabuleiro }],
+          args: [jsSolucoes, jsnumJog, jsOponente, jsTabuleiro],
         },
       },
     };
