@@ -1,20 +1,25 @@
 import React, { useContext, useEffect, useCallback, useState } from "react";
+import { MatchContext } from "../MatchInfo/MatchInfo";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from "./gameunity.module.scss";
 import classnames from "classnames";
 import { UserContext } from "../UserInfo/UserInfo";
 import { PopUPClaim } from "../PopUPClaim/PopUPClaim";
 
-function handleFinish(numJog: any, oponente: any, solArr: any, tabela: any) {
-  console.log("Cheguei no handlefinish");
-}
 function GameUnity() {
-  let { wallet, changeWallet } = useContext(UserContext);
+  let {
+    numJog,
+    changeNumJog,
+    oponente,
+    changeOponente,
+    solucoes,
+    changeSolucoes,
+    tabuleiro,
+    changeTabuleiro,
+  } = useContext(MatchContext);
+  let { wallet } = useContext(UserContext);
   let [terminou, setTerminou] = useState(false);
-  let [numJogador, setNumJogador] = useState(-1);
-  let [oponente, setOponente] = useState("");
-  let [solutions, setSolutions] = useState("");
-  let [tabuleiro, setTabuleiro] = useState("");
+
   const {
     unityProvider,
     isLoaded,
@@ -93,14 +98,7 @@ function GameUnity() {
         console.log(oponente),
         console.log(solutions),
         console.log(tabuleiro),
-        (
-          <PopUPClaim
-            numJog={() => numJogador}
-            oponente={() => oponente}
-            solucoes={() => solutions}
-            tabuleiro={() => tabuleiro}
-          ></PopUPClaim>
-        ))}
+        (<PopUPClaim></PopUPClaim>))}
       <Unity
         className={classnames(styles["unity"])}
         unityProvider={unityProvider}

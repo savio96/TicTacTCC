@@ -1,10 +1,12 @@
 import React from "react";
 import { GameUnity } from "../../Components/GameUnity/GameUnity";
+import { MatchProvider } from "../../Components/MatchInfo/MatchInfo";
 const Jogo = () => {
   return (
     <div>
-      <GameUnity></GameUnity>
-      <p>oi</p>
+      <MatchProvider>
+        <GameUnity></GameUnity>
+      </MatchProvider>
     </div>
   );
 };

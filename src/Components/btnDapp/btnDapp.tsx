@@ -84,13 +84,7 @@ const BtnDepositCoin = ({ BtnToPop }: any) => {
   );
 };
 
-const BtnFinalizar = (
-  { BtnToPop }: any,
-  { numJog }: any,
-  { oponente }: any,
-  { solucoes }: any,
-  { tabuleiro }: any
-) => {
+const BtnFinalizar = ({ BtnToPop }: any) => {
   const [respostaApi, setRespostaApi] = useState(true);
   function ConvertStrArr(linha: string) {
     let aux = linha.split(";");

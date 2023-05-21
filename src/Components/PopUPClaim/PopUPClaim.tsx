@@ -10,12 +10,7 @@ import {
   useNavigation,
 } from "react-router-dom";
 
-function PopUPClaim(
-  { numJog }: any,
-  { oponente }: any,
-  { solucoes }: any,
-  { tabuleiro }: any
-) {
+function PopUPClaim() {
   const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
@@ -39,13 +34,7 @@ function PopUPClaim(
           <Modal.Title>Finalizar partida!!!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <BtnFinalizar
-            BtnToPop={BtnToPop}
-            numJog={() => numJog}
-            oponente={() => oponente}
-            solucoes={() => solucoes}
-            tabuleiro={() => tabuleiro}
-          ></BtnFinalizar>
+          <BtnFinalizar BtnToPop={BtnToPop}></BtnFinalizar>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
