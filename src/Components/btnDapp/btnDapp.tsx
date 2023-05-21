@@ -1,7 +1,8 @@
-import React, { useEffect, useState, SetStateAction } from "react";
+import React, { useEffect, useState, SetStateAction, useContext } from "react";
 import classnames from "classnames";
 import { Navigate, useNavigate, Link, redirect } from "react-router-dom";
 import ConvertJson from "../GameInfos/GameInfos";
+import { MatchContext } from "../MatchInfo/MatchInfo";
 
 const BtnClaimCoin = () => {
   const HandleOnClick = () => {
@@ -85,6 +86,16 @@ const BtnDepositCoin = ({ BtnToPop }: any) => {
 };
 
 const BtnFinalizar = ({ BtnToPop }: any) => {
+  let {
+    numJog,
+    changeNumJog,
+    oponente,
+    changeOponente,
+    solucoes,
+    changeSolucoes,
+    tabuleiro,
+    changeTabuleiro,
+  } = useContext(MatchContext);
   const [respostaApi, setRespostaApi] = useState(true);
   function ConvertStrArr(linha: string) {
     let aux = linha.split(";");
@@ -97,7 +108,8 @@ const BtnFinalizar = ({ BtnToPop }: any) => {
     return vet;
   }
   const HandleFinish = () => {
-    let jsSolucoes = ConvertJson(ConvertStrArr(solucoes));
+    let sol = ConvertStrArr(solucoes);
+    let jsSolucoes = ConvertJson(sol);
     let jsnumJog = { type: "integer", value: { numJog } };
     let jsOponente = { type: "string", value: { oponente } };
     let jsTabuleiro = { type: "string", value: { tabuleiro } };

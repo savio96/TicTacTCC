@@ -55,10 +55,10 @@ function GameUnity() {
       //let solArr = ConvertStrArr(solucoesStr);
       //console.log(solArr);
       //console.log(boardStr);
-      setNumJogador(numJoga);
-      setOponente(adversario);
-      setSolutions(solucoesStr);
-      setTabuleiro(boardStr);
+      changeNumJog(numJoga);
+      changeOponente(adversario);
+      changeSolucoes(solucoesStr);
+      changeTabuleiro(boardStr);
       setTerminou(true);
     },
     []
@@ -94,9 +94,9 @@ function GameUnity() {
       )}
       {terminou === true &&
         oponente !== "" &&
-        (console.log(numJogador),
+        (console.log(numJog),
         console.log(oponente),
-        console.log(solutions),
+        console.log(solucoes),
         console.log(tabuleiro),
         (<PopUPClaim></PopUPClaim>))}
       <Unity
