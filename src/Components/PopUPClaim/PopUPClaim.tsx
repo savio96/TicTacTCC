@@ -16,7 +16,7 @@ function PopUPClaim(
   { solucoes }: any,
   { tabuleiro }: any
 ) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -26,13 +26,9 @@ function PopUPClaim(
     console.log("cheguei aqui");
     navigate("/");
   };
-
+  console.log("Cheguei no pop");
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Jogo
-      </Button>
-
       <Modal
         show={show}
         onHide={handleClose}
@@ -45,10 +41,10 @@ function PopUPClaim(
         <Modal.Body>
           <BtnFinalizar
             BtnToPop={BtnToPop}
-            numJog={numJog}
-            oponente={oponente}
-            solucoes={solucoes}
-            tabuleiro={tabuleiro}
+            numJog={() => numJog}
+            oponente={() => oponente}
+            solucoes={() => solucoes}
+            tabuleiro={() => tabuleiro}
           ></BtnFinalizar>
         </Modal.Body>
         <Modal.Footer>

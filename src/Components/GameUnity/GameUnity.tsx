@@ -1,34 +1,20 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useContext, useEffect, useCallback, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from "./gameunity.module.scss";
 import classnames from "classnames";
 import { UserContext } from "../UserInfo/UserInfo";
 import { PopUPClaim } from "../PopUPClaim/PopUPClaim";
 
-function ConvertStrArr(linha: string) {
-  let aux = linha.split(";");
-  console.log("aux:Split", aux);
-  let vet: number[] = [];
-  aux.forEach((element) => {
-    vet.push(parseInt(element));
-  });
-  vet.pop();
-  return vet;
-}
-
 function handleFinish(numJog: any, oponente: any, solArr: any, tabela: any) {
-  return (
-    <PopUPClaim
-      numJog={numJog}
-      oponente={oponente}
-      solucoes={solArr}
-      tabela={tabela}
-    ></PopUPClaim>
-  );
+  console.log("Cheguei no handlefinish");
 }
 function GameUnity() {
   let { wallet, changeWallet } = useContext(UserContext);
-
+  let [terminou, setTerminou] = useState(false);
+  let [numJogador, setNumJogador] = useState(-1);
+  let [oponente, setOponente] = useState("");
+  let [solutions, setSolutions] = useState("");
+  let [tabuleiro, setTabuleiro] = useState("");
   const {
     unityProvider,
     isLoaded,
@@ -50,21 +36,25 @@ function GameUnity() {
       //console.log(convidado);
       //console.log(solucoesArr);
       //console.log(boardArr);
-      console.log("Fim");
+      //console.log("Fim");
       let carteiraCriador = criador.slice(criador.indexOf("-") + 1);
       let carteiraConvidado = convidado.slice(convidado.indexOf("-") + 1);
-      console.log(carteiraCriador, "Criador");
+      //console.log(carteiraCriador, "Criador");
       console.log(carteiraConvidado, "Convidado");
       let chamada =
         carteiraCriador === wallet ? carteiraCriador : carteiraConvidado;
-      console.log(chamada, "Chamada");
-      let oponente = chamada === wallet ? carteiraConvidado : carteiraCriador;
+      //console.log(chamada, "Chamada");
+      let adversario = chamada === wallet ? carteiraConvidado : carteiraCriador;
       let numJoga = wallet === carteiraCriador ? 0 : 1;
-      console.log(numJoga);
-      let solArr = ConvertStrArr(solucoesStr);
-      console.log(solArr);
-      console.log(boardStr);
-      return handleFinish(numJoga, oponente, solArr, boardStr);
+      //console.log(numJoga);
+      //let solArr = ConvertStrArr(solucoesStr);
+      //console.log(solArr);
+      //console.log(boardStr);
+      setNumJogador(numJoga);
+      setOponente(adversario);
+      setSolutions(solucoesStr);
+      setTabuleiro(boardStr);
+      setTerminou(true);
     },
     []
   );
@@ -73,6 +63,7 @@ function GameUnity() {
       detachAndUnloadImmediate();
     };
   }, [detachAndUnloadImmediate]);
+
   useEffect(() => {
     addEventListener("endMatch", handleEndMatch);
     return () => {
@@ -96,6 +87,20 @@ function GameUnity() {
           <p>Loading... ({loadingPercentage}%)</p>
         </div>
       )}
+      {terminou === true &&
+        oponente !== "" &&
+        (console.log(numJogador),
+        console.log(oponente),
+        console.log(solutions),
+        console.log(tabuleiro),
+        (
+          <PopUPClaim
+            numJog={() => numJogador}
+            oponente={() => oponente}
+            solucoes={() => solutions}
+            tabuleiro={() => tabuleiro}
+          ></PopUPClaim>
+        ))}
       <Unity
         className={classnames(styles["unity"])}
         unityProvider={unityProvider}

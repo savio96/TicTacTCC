@@ -92,8 +92,18 @@ const BtnFinalizar = (
   { tabuleiro }: any
 ) => {
   const [respostaApi, setRespostaApi] = useState(true);
+  function ConvertStrArr(linha: string) {
+    let aux = linha.split(";");
+    console.log("aux:Split", aux);
+    let vet: number[] = [];
+    aux.forEach((element) => {
+      vet.push(parseInt(element));
+    });
+    vet.pop();
+    return vet;
+  }
   const HandleFinish = () => {
-    let jsSolucoes = ConvertJson(solucoes);
+    let jsSolucoes = ConvertJson(ConvertStrArr(solucoes));
     let jsnumJog = { type: "integer", value: { numJog } };
     let jsOponente = { type: "string", value: { oponente } };
     let jsTabuleiro = { type: "string", value: { tabuleiro } };
@@ -107,7 +117,6 @@ const BtnFinalizar = (
         },
       },
     };
-
     KeeperWallet.signAndPublishTransaction(txData)
       .then((data) => {
         setRespostaApi(false);
@@ -135,4 +144,5 @@ const BtnFinalizar = (
     </>
   );
 };
+
 export { BtnClaimCoin, BtnDepositCoin, BtnFinalizar };
