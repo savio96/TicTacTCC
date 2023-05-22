@@ -49,7 +49,8 @@ function GameUnity() {
       let chamada =
         carteiraCriador === wallet ? carteiraCriador : carteiraConvidado;
       //console.log(chamada, "Chamada");
-      let adversario = chamada === wallet ? carteiraConvidado : carteiraCriador;
+      let adversario =
+        chamada === carteiraCriador ? carteiraConvidado : carteiraCriador;
       let numJoga = wallet === carteiraCriador ? 0 : 1;
       //console.log(numJoga);
       //let solArr = ConvertStrArr(solucoesStr);
@@ -92,13 +93,7 @@ function GameUnity() {
           <p>Loading... ({loadingPercentage}%)</p>
         </div>
       )}
-      {terminou === true &&
-        oponente !== "" &&
-        (console.log(numJog),
-        console.log(oponente),
-        console.log(solucoes),
-        console.log(tabuleiro),
-        (<PopUPClaim></PopUPClaim>))}
+      {terminou === true && oponente !== "" && <PopUPClaim></PopUPClaim>}
       <Unity
         className={classnames(styles["unity"])}
         unityProvider={unityProvider}
