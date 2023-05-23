@@ -96,6 +96,7 @@ function GameUnity() {
       {terminou === true && oponente !== "" && <PopUPClaim></PopUPClaim>}
       <Unity
         className={classnames(styles["unity"])}
+        tabIndex={1}
         unityProvider={unityProvider}
       />
     </div>
