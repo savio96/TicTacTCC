@@ -8089,6 +8089,10 @@ function _dlsym(handle, symbol) {
  return 0;
 }
 
+function _drawMatch(draw) {
+ window.dispatchReactUnityEvent("drawMatch", draw);
+}
+
 var readAsmConstArgsArray = [];
 
 function readAsmConstArgs(sigPtr, buf) {
@@ -13888,6 +13892,7 @@ var asmLibraryArg = {
  "dlerror": _dlerror,
  "dlopen": _dlopen,
  "dlsym": _dlsym,
+ "drawMatch": _drawMatch,
  "emscripten_asm_const_int": _emscripten_asm_const_int,
  "emscripten_asm_const_int_sync_on_main_thread": _emscripten_asm_const_int_sync_on_main_thread,
  "emscripten_cancel_main_loop": _emscripten_cancel_main_loop,

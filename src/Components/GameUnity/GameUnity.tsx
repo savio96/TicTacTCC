@@ -5,6 +5,7 @@ import styles from "./gameunity.module.scss";
 import classnames from "classnames";
 import { UserContext } from "../UserInfo/UserInfo";
 import { PopUPClaim } from "../PopUPClaim/PopUPClaim";
+import { PopUPDraw } from "../PopUPDraw/PopUPDraw";
 
 function GameUnity() {
   let {
@@ -16,6 +17,8 @@ function GameUnity() {
     changeSolucoes,
     tabuleiro,
     changeTabuleiro,
+    empate,
+    changeEmpate,
   } = useContext(MatchContext);
   let { wallet } = useContext(UserContext);
   let [terminou, setTerminou] = useState(false);
@@ -64,11 +67,23 @@ function GameUnity() {
     },
     []
   );
+  const handleDrawMatch = useCallback((empate: any) => {
+    console.log(empate);
+    changeEmpate(empate);
+  }, []);
+
   useEffect(() => {
     return () => {
       detachAndUnloadImmediate();
     };
   }, [detachAndUnloadImmediate]);
+
+  useEffect(() => {
+    addEventListener("drawMatch", handleDrawMatch);
+    return () => {
+      removeEventListener("drawMatch", handleDrawMatch);
+    };
+  }, [addEventListener, removeEventListener, handleDrawMatch]);
 
   useEffect(() => {
     addEventListener("endMatch", handleEndMatch);
@@ -94,6 +109,7 @@ function GameUnity() {
         </div>
       )}
       {terminou === true && oponente !== "" && <PopUPClaim></PopUPClaim>}
+      {empate === 1 && <PopUPDraw></PopUPDraw>}
       <Unity
         className={classnames(styles["unity"])}
         tabIndex={1}

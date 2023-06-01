@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { Navigate, useNavigate, Link, redirect } from "react-router-dom";
 import ConvertJson from "../GameInfos/GameInfos";
 import { MatchContext } from "../MatchInfo/MatchInfo";
+import { Button } from "react-bootstrap";
 
 const BtnClaimCoin = () => {
   const HandleOnClick = () => {
@@ -26,13 +27,7 @@ const BtnClaimCoin = () => {
   };
   return (
     <>
-      <Link
-        onClick={HandleOnClick}
-        className="nav-link nav-link-teste"
-        to="/jogo"
-      >
-        Resgatar
-      </Link>
+      <Button onClick={HandleOnClick}>Resgatar</Button>
     </>
   );
 };
