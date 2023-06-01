@@ -4,6 +4,7 @@ import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
 import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
 import { PopUPDeposit } from "../PopUPDeposit/PopUPDeposit";
+
 const NavigationBar = () => {
   return (
     <>
@@ -64,24 +65,40 @@ const NavigationBar = () => {
                     </Link>
                   </li>
                   <li>
+                    <hr className="dropdown-divider"></hr>
+                  </li>
+                  <li>
                     <a className="dropdown-item" href="#">
-                      Another action
+                      Como Jogar
                     </a>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Resgates
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="nav-link" to="/resgateNFT">
+                      Resgate seu NFT
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider"></hr>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
+                    <Link className="nav-link" to="/resgateToken">
+                      Resgate seu Token
+                    </Link>
                   </li>
                 </ul>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/resgate">
-                  Resgate seu NFT
-                </Link>
               </li>
 
               <li className="nav-item">
