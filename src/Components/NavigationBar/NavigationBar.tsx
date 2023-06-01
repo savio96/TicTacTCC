@@ -4,6 +4,7 @@ import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
 import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
 import { PopUPDeposit } from "../PopUPDeposit/PopUPDeposit";
+
 const NavigationBar = () => {
   return (
     <>
