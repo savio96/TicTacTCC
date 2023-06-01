@@ -9,6 +9,8 @@ interface IMatchProps {
   changeSolucoes: Function;
   tabuleiro: string;
   changeTabuleiro: Function;
+  empate: number;
+  changeEmpate: Function;
 }
 
 type UserProviderProps = {
@@ -24,6 +26,8 @@ const defaultState = {
   changeSolucoes: () => {},
   tabuleiro: "",
   changeTabuleiro: () => {},
+  empate: 0,
+  changeEmpate: () => {},
 };
 
 const MatchContext = React.createContext<IMatchProps>(defaultState);
@@ -33,6 +37,7 @@ const MatchProvider = (props: UserProviderProps) => {
   const [oponente, setOponente] = React.useState(defaultState.oponente);
   const [solucoes, setSolutions] = React.useState(defaultState.solucoes);
   const [tabuleiro, setTabuleiro] = React.useState(defaultState.tabuleiro);
+  const [empate, setEmpate] = React.useState(defaultState.empate);
 
   const changeNumJog = (key: number) => {
     setNumJogador(key);
@@ -46,7 +51,9 @@ const MatchProvider = (props: UserProviderProps) => {
   const changeTabuleiro = (val: string) => {
     setTabuleiro(val);
   };
-
+  const changeEmpate = (key: number) => {
+    setEmpate(key);
+  };
   return (
     <MatchContext.Provider
       value={{
@@ -58,6 +65,8 @@ const MatchProvider = (props: UserProviderProps) => {
         changeSolucoes,
         tabuleiro,
         changeTabuleiro,
+        empate,
+        changeEmpate,
       }}
     >
       {props.children}
