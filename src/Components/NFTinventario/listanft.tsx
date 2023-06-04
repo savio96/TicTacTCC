@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 interface ListaItem {
-    nome: string;
-    img: string;
+  nome: string;
+  img: string;
 }
 
 interface Props {
@@ -14,8 +14,9 @@ const ListaDeStrings: React.FC<Props> = ({ listaDeStrings }) => {
     <ul>
       {listaDeStrings.map((string, index) => (
         <li key={index}>
-           {/* <span>{string.nome}</span> */}
-           <img src={string.img} alt={string.nome} width={200}/> 
+          {/* <span>{string.nome}</span> */}
+          <img src={string.img} alt={string.nome} width={200} />
+          <p>{string.nome}</p>
         </li>
       ))}
     </ul>
