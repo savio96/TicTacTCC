@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import classnames from "classnames";
 import styles from "./NFTinventario.module.scss";
 import { UserContext } from "../UserInfo/UserInfo";
+
 import { /*ProviderKeeper,*/ isKeeperInstalled } from "@waves/provider-keeper";
 import onft from "../NFTinventario/assets/images/o_nft.png";
 import xnft from "../NFTinventario/assets/images/x_nft.png";
-import parse from "html-react-parser";
+
 import HTMLReactParser from "html-react-parser";
 import { ListFormat } from "typescript";
 import ListaDeStrings from "./listanft";
@@ -34,7 +35,7 @@ interface INFTCarteira {
 }
 
 const NFTinventario: React.FC = () => {
-  const [valueNft, setvalueNft] = useState<string[]>([]);
+  const [valueNft, setvalueNft] = useState<[]>([]);
 
   let {
     status,
@@ -57,23 +58,23 @@ const NFTinventario: React.FC = () => {
     const emissaoNFT = await fetch(url2);
     const emissaoNFTData = await emissaoNFT.json();
 
-    console.log(emissaoNFTData);
+    //console.log(emissaoNFTData);
 
     const values = responseListData.map((item: IResponse) => {
       const nftCarteira = emissaoNFTData.find(
         (nft: INFTCarteira) => nft.key.replace("_ipfs", "") === item.assetId
       );
       const nftCarteiraName = item.name;
-      console.log(nftCarteira);
-      /*
+      //console.log(nftCarteira);
       const NFT = {
         nome: nftCarteiraName,
         valor: nftCarteira.value,
-      };*/
-      return nftCarteira.value;
+      };
+      //console.log(NFT);
+      return NFT;
     });
 
-    console.log(values);
+    //console.log(values);
     setvalueNft(values);
   }
   useEffect(() => {
@@ -84,17 +85,21 @@ const NFTinventario: React.FC = () => {
 
   for (let i = 0; i < valueNft.length; i++) {
     console.log(valueNft);
-    const valor = valueNft[i];
+    const valor = valueNft[i]["valor"];
     const image =
       valor === "bolinha-jogo-da-velha-nft-prêmio-7912380" ? onft : xnft;
-    listaDeStrings.push({ nome: valueNft[i], img: image });
+    const nome = valueNft[i]["nome"];
+    listaDeStrings.push({
+      nome: nome,
+      img: image,
+    });
   }
 
   if (status == "Conectado") {
     return (
       <div>
-        <div>
-          <h1>Sua lista de NFT's:</h1>
+        <div className={styles["lista-nft-container"]}>
+          <h1 className={styles["lista-nft-titulo"]}>Sua lista de NFT's:</h1>
           <ListaDeStrings listaDeStrings={listaDeStrings} />
         </div>
       </div>
@@ -102,17 +107,11 @@ const NFTinventario: React.FC = () => {
   } else {
     return (
       <div>
-        <div>Você não conectou sua carteira!</div>
+        <div className={styles["nao-conectado"]}>
+          Você não conectou sua carteira!
+        </div>
       </div>
     );
   }
 };
 export { NFTinventario };
-
-// return (
-//     <div>
-//        <div className={classnames(styles["wallet"])}>{wallet}</div>
-//        <img className="d-block w-100" src={onft}/>
-//        <img className="d-block w-100" src={xnft}/>
-//     </div>
-// );

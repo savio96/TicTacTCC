@@ -1,0 +1,33 @@
+.nft-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.nft-card {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.23);
+}
+.nft-card-image {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  margin-top: 10px;
+}
+.nft-card-name {
+  display: flex;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  right: 7px;
+  position: relative;
+  text-align: center;
+  color: blue;
+}
