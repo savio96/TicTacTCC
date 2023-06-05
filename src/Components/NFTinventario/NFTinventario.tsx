@@ -34,7 +34,7 @@ interface INFTCarteira {
 }
 
 const NFTinventario: React.FC = () => {
-  const [valueNft, setvalueNft] = useState<string[]>([]);
+  const [valueNft, setvalueNft] = useState<[]>([]);
 
   let {
     status,
@@ -57,23 +57,23 @@ const NFTinventario: React.FC = () => {
     const emissaoNFT = await fetch(url2);
     const emissaoNFTData = await emissaoNFT.json();
 
-    console.log(emissaoNFTData);
+    //console.log(emissaoNFTData);
 
     const values = responseListData.map((item: IResponse) => {
       const nftCarteira = emissaoNFTData.find(
         (nft: INFTCarteira) => nft.key.replace("_ipfs", "") === item.assetId
       );
       const nftCarteiraName = item.name;
-      console.log(nftCarteira);
-      /*
+      //console.log(nftCarteira);
       const NFT = {
         nome: nftCarteiraName,
         valor: nftCarteira.value,
-      };*/
-      return nftCarteira.value;
+      };
+      //console.log(NFT);
+      return NFT;
     });
 
-    console.log(values);
+    //console.log(values);
     setvalueNft(values);
   }
   useEffect(() => {
@@ -84,17 +84,21 @@ const NFTinventario: React.FC = () => {
 
   for (let i = 0; i < valueNft.length; i++) {
     console.log(valueNft);
-    const valor = valueNft[i];
+    const valor = valueNft[i]["valor"];
     const image =
       valor === "bolinha-jogo-da-velha-nft-prêmio-7912380" ? onft : xnft;
-    listaDeStrings.push({ nome: valueNft[i], img: image });
+    const nome = valueNft[i]["nome"];
+    listaDeStrings.push({
+      nome: nome,
+      img: image,
+    });
   }
 
   if (status == "Conectado") {
     return (
       <div>
-        <div>
-          <h1>Sua lista de NFT's:</h1>
+        <div className="lista-nft-container">
+          <h1 className="lista-nft-titulo">Sua lista de NFT's:</h1>
           <ListaDeStrings listaDeStrings={listaDeStrings} />
         </div>
       </div>
@@ -102,7 +106,7 @@ const NFTinventario: React.FC = () => {
   } else {
     return (
       <div>
-        <div>Você não conectou sua carteira!</div>
+        <div className="nao-conectado">Você não conectou sua carteira!</div>
       </div>
     );
   }

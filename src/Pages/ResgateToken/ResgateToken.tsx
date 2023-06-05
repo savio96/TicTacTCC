@@ -17,7 +17,7 @@ const ResgateToken = () => {
           <a href="https://wavesexplorer.com/faucet?network=testnet">
             Waves Explorer
           </a>
-          &nbsp; e colocar o endereço da carteira no formulário
+          &nbsp; e colocar o endereço da carteira no formulário.
         </p>
       </div>
     </div>
