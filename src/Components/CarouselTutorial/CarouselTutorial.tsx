@@ -20,8 +20,12 @@ import passo12 from "../CarouselTutorial/assets/images/passo12.jpg";
 const CarouselTutorial = () => {
   return (
     <div>
-      <Carousel variant="dark">
-        <Carousel.Item className="">
+      <Carousel
+        slide={false}
+        className={styles["carousel-items"]}
+        variant="dark"
+      >
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={titulo} alt="Title slide" />
           <Carousel.Caption>
             <h3></h3>
@@ -29,7 +33,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo1} alt="First slide" />
           <Carousel.Caption>
             <h3>Passo 1</h3>
@@ -37,7 +41,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo2} alt="Second slide" />
           <Carousel.Caption>
             <h3>Passo 2</h3>
@@ -45,7 +49,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo3} alt="Third slide" />
           <Carousel.Caption>
             <h3>Passo 3</h3>
@@ -53,7 +57,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo4} alt="Fourth slide" />
           <Carousel.Caption>
             <h3>Passo 4</h3>
@@ -61,7 +65,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo5} alt="Fifth slide" />
           <Carousel.Caption>
             <h3>Passo 5</h3>
@@ -72,7 +76,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo6} alt="Sixth slide" />
           <Carousel.Caption>
             <h3>Passo 6</h3>
@@ -82,7 +86,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo7} alt="Seventh slide" />
           <Carousel.Caption>
             <h3>Passo 7</h3>
@@ -90,7 +94,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo8} alt="Eighth slide" />
           <Carousel.Caption>
             <h3>Passo 8</h3>
@@ -101,7 +105,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo9} alt="Ninth slide" />
           <Carousel.Caption>
             <h3>Passo 9</h3>
@@ -112,7 +116,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo10} alt="tenth slide" />
           <Carousel.Caption>
             <h3>Passo 10</h3>
@@ -124,7 +128,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo11} alt="Eleventh slide" />
           <Carousel.Caption>
             <h3>Passo 11</h3>
@@ -135,7 +139,7 @@ const CarouselTutorial = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="">
+        <Carousel.Item className={styles["carousel-item"]}>
           <img className="d-block w-100" src={passo12} alt="Twelfth slide" />
           <Carousel.Caption>
             <h3>Passo 12</h3>
