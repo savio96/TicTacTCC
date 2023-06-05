@@ -5,13 +5,7 @@ import {
   BtnFinalizar,
 } from "../../Components/btnDapp/btnDapp";
 const Teste = () => {
-  return (
-    <>
-      <div>
-        <BtnFinalizar></BtnFinalizar>
-      </div>
-    </>
-  );
+  return <></>;
 };
 
 export { Teste };

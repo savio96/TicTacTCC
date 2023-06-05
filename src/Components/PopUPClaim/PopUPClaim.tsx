@@ -30,18 +30,13 @@ function PopUPClaim() {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Finalizar partida!!!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <BtnFinalizar BtnToPop={BtnToPop}></BtnFinalizar>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );

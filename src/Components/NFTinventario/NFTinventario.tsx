@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import classnames from "classnames";
 import styles from "./NFTinventario.module.scss";
 import { UserContext } from "../UserInfo/UserInfo";
+
 import { /*ProviderKeeper,*/ isKeeperInstalled } from "@waves/provider-keeper";
 import onft from "../NFTinventario/assets/images/o_nft.png";
 import xnft from "../NFTinventario/assets/images/x_nft.png";
-import parse from "html-react-parser";
+
 import HTMLReactParser from "html-react-parser";
 import { ListFormat } from "typescript";
 import ListaDeStrings from "./listanft";
@@ -97,8 +98,8 @@ const NFTinventario: React.FC = () => {
   if (status == "Conectado") {
     return (
       <div>
-        <div className="lista-nft-container">
-          <h1 className="lista-nft-titulo">Sua lista de NFT's:</h1>
+        <div className={styles["lista-nft-container"]}>
+          <h1 className={styles["lista-nft-titulo"]}>Sua lista de NFT's:</h1>
           <ListaDeStrings listaDeStrings={listaDeStrings} />
         </div>
       </div>
@@ -106,17 +107,11 @@ const NFTinventario: React.FC = () => {
   } else {
     return (
       <div>
-        <div className="nao-conectado">Você não conectou sua carteira!</div>
+        <div className={styles["nao-conectado"]}>
+          Você não conectou sua carteira!
+        </div>
       </div>
     );
   }
 };
 export { NFTinventario };
-
-// return (
-//     <div>
-//        <div className={classnames(styles["wallet"])}>{wallet}</div>
-//        <img className="d-block w-100" src={onft}/>
-//        <img className="d-block w-100" src={xnft}/>
-//     </div>
-// );

@@ -1,4 +1,4 @@
-.resgate-nft-container {
+.resgate-container {
   margin-top: 50px;
   margin-left: 50px;
   h3 {
@@ -8,11 +8,18 @@
     text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
       0px 0px 20px #b393d3;
   }
-  p {
-    font-size: 26px;
-    color: white;
-  }
   button {
-    margin-top: 25px;
+    margin: 20px 40px;
+  }
+}
+
+.resgate-waves-container {
+  p {
+    color: white;
+    font-size: 26px;
+  }
+  a {
+    text-transform: uppercase;
+    font-weight: bold;
   }
 }
