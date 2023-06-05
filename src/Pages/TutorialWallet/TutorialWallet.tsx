@@ -1,10 +1,9 @@
 import React from "react";
 import { CarouselTutorial } from "../../Components/CarouselTutorial/CarouselTutorial";
-
+import styles from "./tutorialwallet.module.scss";
 const TutorialWallet = () => {
-  const soma = 3 + 9;
   return (
-    <div>
+    <div className={styles["carousel-container"]}>
       <CarouselTutorial></CarouselTutorial>
     </div>
   );
