@@ -1,11 +1,11 @@
 import React from "react";
-import {
-  BtnClaimCoin,
-  BtnDepositCoin,
-  BtnFinalizar,
-} from "../../Components/btnDapp/btnDapp";
+import { GameUnity } from "../../Components/GameUnity/GameUnity";
 const Teste = () => {
-  return <></>;
+  return (
+    <>
+      <GameUnity></GameUnity>
+    </>
+  );
 };
 
 export { Teste };

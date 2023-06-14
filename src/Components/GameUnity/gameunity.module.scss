@@ -1,8 +1,11 @@
 .container {
+  display: flex;
   position: relative;
   /* The container determains the size. */
-  width: 800px;
-  height: 600px;
+  width: 100%;
+  height: 86vh;
+  align-items: center;
+  z-index: -3;
 }
 
 .container > .loading-overlay {
@@ -21,6 +24,8 @@
 
 .container > .unity {
   /* The Unity Application matches it size to the container. */
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
