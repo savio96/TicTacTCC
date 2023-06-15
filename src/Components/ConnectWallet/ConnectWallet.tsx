@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react";
 import styles from "./connectwallet.module.scss";
 import classnames from "classnames";
 import { UserContext } from "../UserInfo/UserInfo";
-//import { Signer } from "@waves/signer";
-import { /*ProviderKeeper,*/ isKeeperInstalled } from "@waves/provider-keeper";
+
+import { isKeeperInstalled } from "@waves/provider-keeper";
 import { GetBalanceTCC } from "../UserInfo/getBalanceTCC";
 
 const ConnectWallet = () => {
@@ -23,24 +23,7 @@ const ConnectWallet = () => {
     e.preventDefault();
 
     const isInstalled = await isKeeperInstalled();
-    /*
-    const signer = new Signer({
-      // Specify URL of the node on Testnet
-      NODE_URL: "https://nodes-testnet.wavesnodes.com",
-    });
-    const keeper = new ProviderKeeper();
-    signer.setProvider(keeper);
 
-    signer.login().then((data) => {
-      changeWallet(data["address"]);
-      changePublicKey(data["publicKey"]);
-      fetch(
-        `https://nodes-testnet.wavesnodes.com/addresses/balance/${data["address"]}`
-      )
-        .then((res) => res.json())
-        .then((res2) => console.log(res2));
-    });
-    */
     const authData = { data: "Auth on my site" };
     KeeperWallet.auth(authData).then(async (auth) => {
       console.log(auth);
@@ -77,7 +60,3 @@ const ConnectWallet = () => {
 };
 
 export { ConnectWallet };
-/*
-<div className={classnames(styles["balanceTCC"])}>
-          TCC: {balanceTCC}
-        </div>*/

@@ -11,22 +11,12 @@ const GetBalanceTCC = () => {
   )
     .then((res) => res.json())
     .then((res2) => changeBalanceTCC(res2["balance"] / 100));
-  //console.log(balanceTCC + "tentando");
+
   return (
     <>
       <div className={classnames(styles["balanceTCC"])}>TCC : {balanceTCC}</div>
     </>
   );
 };
-
-/*
-const ShowBalanceTCC = () => {
-  GetBalanceTCC();
-  return (
-    <>
-      <div>oi</div>
-    </>
-  );
-};*/
 
 export { GetBalanceTCC };
