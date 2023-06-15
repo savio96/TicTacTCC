@@ -14,7 +14,7 @@ const GetBalanceTCC = () => {
   //console.log(balanceTCC + "tentando");
   return (
     <>
-      <div className={classnames(styles["balanceTCC"])}>TCC: {balanceTCC}</div>
+      <div className={classnames(styles["balanceTCC"])}>TCC : {balanceTCC}</div>
     </>
   );
 };

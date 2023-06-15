@@ -69,7 +69,7 @@ const ConnectWallet = () => {
           {status}
         </button>
         <div className={classnames(styles["wallet"])}>{wallet}</div>
-        <div className={classnames(styles["balance"])}>Waves: {balance}</div>
+        <div className={classnames(styles["balance"])}>Waves : {balance}</div>
       </div>
       {wallet !== "" && <GetBalanceTCC></GetBalanceTCC>}
     </>
