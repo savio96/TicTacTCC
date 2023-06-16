@@ -9,6 +9,8 @@ interface IUserProps {
   changePublicKey: Function;
   balance: number;
   changeBalance: Function;
+  balanceTCC: number;
+  changeBalanceTCC: Function;
 }
 
 type UserProviderProps = {
@@ -24,6 +26,8 @@ const defaultState = {
   changePublicKey: () => {},
   balance: 0,
   changeBalance: () => {},
+  balanceTCC: 0,
+  changeBalanceTCC: () => {},
 };
 
 const UserContext = React.createContext<IUserProps>(defaultState);
@@ -32,6 +36,7 @@ const UserProvider = (props: UserProviderProps) => {
   const [publicKey, setPublic] = React.useState(defaultState.publicKey);
   const [status, setStatus] = React.useState(defaultState.status);
   const [balance, setBalance] = React.useState(defaultState.balance);
+  const [balanceTCC, setBalanceTCC] = React.useState(defaultState.balanceTCC);
 
   const changePublicKey = (key: string) => {
     setPublic(key);
@@ -45,6 +50,11 @@ const UserProvider = (props: UserProviderProps) => {
   const changeBalance = (val: number) => {
     setBalance(val);
   };
+  const changeBalanceTCC = (val: number) => {
+    if (val !== 0) {
+      setBalanceTCC(val);
+    }
+  };
 
   return (
     <UserContext.Provider
@@ -57,6 +67,8 @@ const UserProvider = (props: UserProviderProps) => {
         changeStatus,
         balance,
         changeBalance,
+        balanceTCC,
+        changeBalanceTCC,
       }}
     >
       {props.children}
