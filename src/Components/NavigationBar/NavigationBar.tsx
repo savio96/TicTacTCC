@@ -4,6 +4,7 @@ import styles from "./navigationbar.module.scss";
 import classnames from "classnames";
 import { ConnectWallet } from "../ConnectWallet/ConnectWallet";
 import { PopUPDeposit } from "../PopUPDeposit/PopUPDeposit";
+import homeIcon from "./assets/home.png";
 
 const NavigationBar = () => {
   return (
@@ -17,7 +18,7 @@ const NavigationBar = () => {
             className={classnames("nav-link", styles["nav-link-home"])}
             to="/"
           >
-            Home
+            <img src={homeIcon} alt="Home" className={styles["home-icon"]} />
           </Link>
           <button
             className="navbar-toggler"
@@ -32,12 +33,6 @@ const NavigationBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-              <li className="nav-item">
-                <Link className="nav-link nav-link-teste" to="/teste">
-                  Teste
-                </Link>
-              </li>
-
               <li className="nav-item">
                 <PopUPDeposit></PopUPDeposit>
               </li>
@@ -86,16 +81,17 @@ const NavigationBar = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="nav-link" to="/resgateNFT">
-                      Resgate seu NFT
-                    </Link>
-                  </li>
-                  <li>
+                    <li>
+                      <Link className="nav-link" to="/resgateToken">
+                        Resgate seu Token
+                      </Link>
+                    </li>
                     <hr className="dropdown-divider"></hr>
                   </li>
+
                   <li>
-                    <Link className="nav-link" to="/resgateToken">
-                      Resgate seu Token
+                    <Link className="nav-link" to="/resgateNFT">
+                      Resgate seu NFT
                     </Link>
                   </li>
                 </ul>

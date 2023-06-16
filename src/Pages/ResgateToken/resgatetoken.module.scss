@@ -21,5 +21,12 @@
   a {
     text-transform: uppercase;
     font-weight: bold;
+    color: aqua;
+    &:hover {
+      color: #b393d3;
+    }
   }
+}
+.resgate-token-container {
+  margin-top: 50px;
 }

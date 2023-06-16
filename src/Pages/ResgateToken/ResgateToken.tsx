@@ -6,10 +6,6 @@ import { BtnClaimCoin } from "../../Components/btnDapp/btnDapp";
 const ResgateToken = () => {
   return (
     <div className={styles["resgate-container"]}>
-      <div className={styles["resgate-token-container"]}>
-        <h3>Resgatar Token Tcc</h3>
-        <BtnClaimCoin></BtnClaimCoin>
-      </div>
       <div className={styles["resgate-waves-container"]}>
         <h3>Resgatar Waves</h3>
         <p>
@@ -22,6 +18,10 @@ const ResgateToken = () => {
           </a>
           &nbsp; e colocar o endereço da carteira no formulário.
         </p>
+      </div>
+      <div className={styles["resgate-token-container"]}>
+        <h3>Resgatar Token Tcc</h3>
+        <BtnClaimCoin></BtnClaimCoin>
       </div>
     </div>
   );

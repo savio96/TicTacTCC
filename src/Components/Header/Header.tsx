@@ -4,7 +4,7 @@ import styles from "../Header/header.module.scss";
 import { NavigationBar } from "../NavigationBar/NavigationBar";
 const Header = () => {
   return (
-    <div className={styles["teste"]}>
+    <div className={styles["header-menu"]}>
       <NavigationBar />
     </div>
   );
