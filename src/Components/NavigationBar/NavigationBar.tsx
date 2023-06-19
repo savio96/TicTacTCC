@@ -63,7 +63,7 @@ const NavigationBar = () => {
                     <hr className="dropdown-divider"></hr>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/tutorial-game">
                       Como Jogar
                     </a>
                   </li>
