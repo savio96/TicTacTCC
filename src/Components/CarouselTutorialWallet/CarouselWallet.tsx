@@ -3,19 +3,19 @@ import Slider from "react-slick";
 import styles from "./carouselwallet.module.scss";
 import classnames from "classnames";
 import { Carousel, Container } from "react-bootstrap";
-import titulo from "../CarouselTutorial/assets/images/Titulo.jpg";
-import passo1 from "../CarouselTutorial/assets/images/passo1.jpg";
-import passo2 from "../CarouselTutorial/assets/images/passo2.jpg";
-import passo3 from "../CarouselTutorial/assets/images/passo3.jpg";
-import passo4 from "../CarouselTutorial/assets/images/passo4.jpg";
-import passo5 from "../CarouselTutorial/assets/images/passo5.jpg";
-import passo6 from "../CarouselTutorial/assets/images/passo6.jpg";
-import passo7 from "../CarouselTutorial/assets/images/passo7.jpg";
-import passo8 from "../CarouselTutorial/assets/images/passo8.jpg";
-import passo9 from "../CarouselTutorial/assets/images/passo9.jpg";
-import passo10 from "../CarouselTutorial/assets/images/passo10.jpg";
-import passo11 from "../CarouselTutorial/assets/images/passo11.jpg";
-import passo12 from "../CarouselTutorial/assets/images/passo12.jpg";
+import titulo from "../CarouselTutorialWallet/assets/images/Titulo.jpg";
+import passo1 from "../CarouselTutorialWallet/assets/images/passo1.jpg";
+import passo2 from "../CarouselTutorialWallet/assets/images/passo2.jpg";
+import passo3 from "../CarouselTutorialWallet/assets/images/passo3.jpg";
+import passo4 from "../CarouselTutorialWallet/assets/images/passo4.jpg";
+import passo5 from "../CarouselTutorialWallet/assets/images/passo5.jpg";
+import passo6 from "../CarouselTutorialWallet/assets/images/passo6.jpg";
+import passo7 from "../CarouselTutorialWallet/assets/images/passo7.jpg";
+import passo8 from "../CarouselTutorialWallet/assets/images/passo8.jpg";
+import passo9 from "../CarouselTutorialWallet/assets/images/passo9.jpg";
+import passo10 from "../CarouselTutorialWallet/assets/images/passo10.jpg";
+import passo11 from "../CarouselTutorialWallet/assets/images/passo11.jpg";
+import passo12 from "../CarouselTutorialWallet/assets/images/passo12.jpg";
 
 export default class CarouselWallet extends Component {
   render() {
