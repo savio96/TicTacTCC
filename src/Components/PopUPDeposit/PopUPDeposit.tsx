@@ -19,7 +19,7 @@ function PopUPDeposit() {
     if (wallet != "") {
       setShow(true);
     } else {
-      alert("Por favor conectar sua carteira.");
+      alert("Por favor conectar sua carteira");
     }
   };
   const navigate = useNavigate();
