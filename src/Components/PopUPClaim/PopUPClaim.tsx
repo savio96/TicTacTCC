@@ -18,10 +18,10 @@ function PopUPClaim() {
   const navigate = useNavigate();
   const BtnToPop = (btndata: any) => {
     setShow(!show);
-    console.log("cheguei aqui");
+
     navigate("/");
   };
-  console.log("Cheguei no pop");
+
   return (
     <>
       <Modal
