@@ -1,17 +1,22 @@
 .slick-next {
+  right: 60px;
   &:before {
     font-size: 50px;
   }
 }
 
 .slick-prev {
+  left: 40px;
+  z-index: 50;
   &:before {
     font-size: 50px;
   }
 }
+/*
 .slick-next {
-  right: 60px;
+  
 }
 .slick-prev {
-  left: 40px;
+  
 }
+*/
